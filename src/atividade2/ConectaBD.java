@@ -74,7 +74,7 @@ public class ConectaBD extends TMConectaBD {
         Connection con = null;
         try {
 
-            con = (Connection)DriverManager.getConnection(url,"root","mat81299");
+            con = (Connection)DriverManager.getConnection(url,"root"," ");
             Statement stm = con.createStatement();          
             String comando ="insert into computador values(0,"+"'"+this.placa_mae+"'"+", "+"'"+this.processador+"'"+","+this.RAM+","+ "'"+this.HD+"'"+","+"'"+this.SSD+"'"+","+"'"+this.placa_video+"'"+");" ;   
             stm.execute(comando);                     
