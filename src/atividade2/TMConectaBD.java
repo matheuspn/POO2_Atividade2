@@ -13,8 +13,8 @@ public abstract class TMConectaBD {
     
     /**
      * Método usado para executar uma querry no banco de dados.
-     * @param url URL do jdbc que será usado na querry.
+     * 
      */
-    abstract void executa(String url); 
+    abstract void insere(); 
     
 }

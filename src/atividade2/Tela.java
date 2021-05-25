@@ -47,6 +47,8 @@ public class Tela extends JFrame implements ActionListener{
 	private JRadioButton rbtnSSD240;
 	private JRadioButton rbtnSSD480;
 	private JRadioButton rbtnSSD1;
+        private JRadioButton rbtnMongo;
+        private JRadioButton rbtnDB;
 	private ButtonGroup btgRAM;
 	private ButtonGroup btgHD;
 	private ButtonGroup btgSSD;
@@ -157,6 +159,15 @@ public class Tela extends JFrame implements ActionListener{
 		rbtnSSD1 = new JRadioButton("1TB");
 		rbtnSSD1.setBounds(450, 150, 75, 25);
 		getContentPane().add(rbtnSSD1);
+                
+                // radioButtons bases
+                rbtnDB = new JRadioButton("MySQL");
+                rbtnDB.setBounds(200, 250, 100, 50);
+                getContentPane().add(rbtnDB);
+                
+                rbtnMongo = new JRadioButton("MongoDB");
+                rbtnMongo.setBounds(300, 250, 100, 50);
+                getContentPane().add(rbtnMongo);
 		
 		btnEnter = new JButton("Enviar");
                 btnEnter.setBounds(225, 200, 100, 25);
@@ -238,10 +249,16 @@ public class Tela extends JFrame implements ActionListener{
 			 ssd = "1TB";
 		 }
 		 
-
-		ConectaBD conecta = ConectaBD.getConectaBD();
-                conecta.setParams(placa_mae, processador, ram, hd, ssd, placa_video);
-                conecta.executa("jdbc:mysql://localhost:3306/poo2");
+                if (rbtnDB.isSelected()){
+                    ConectaBD conecta = ConectaBD.getConectaBD();
+                    conecta.setParams(placa_mae, processador, ram, hd, ssd, placa_video);
+                    conecta.insere();
+                } 
+                if (rbtnMongo.isSelected()){
+                    ConectaMongodb conectaMongo = ConectaMongodb.getConectaMongoBD();
+                    conectaMongo.setParams(placa_mae, processador, ram, hd, ssd, placa_video);
+                    conectaMongo.insere();
+                }
                 
 	}
 	 

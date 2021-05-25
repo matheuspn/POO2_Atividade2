@@ -14,7 +14,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
- * Classe que realiza a conexão com banco de dados.
+ * Classe que realiza a conexão com banco de dados MySQL.
  * 
  * @version 2021
  * @author matpr
@@ -66,11 +66,11 @@ public class ConectaBD extends TMConectaBD {
     
     /**
      * Realiza a conexão com o banco de dados e executa a inserção dos dados.
-     * @param url URL do jdbc usado.
      */
     @Override
-    public void executa(String url){
+    public void insere(){
         
+        String url = "jdbc:mysql://localhost:3306/poo2";
         Connection con = null;
         try {
 
